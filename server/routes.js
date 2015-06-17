@@ -1,6 +1,13 @@
+var express = require('express'),
+	router = express.Router();
 
-var routes = {
+module.exports = function(app){	
 
+	
+	// angularjs catch all route
+	router.get('/*', function(req, res) {
+		res.sendfile('./public/index.html');
+	});
+
+	app.use('/', router);
 };
-
-module.exports = routes;

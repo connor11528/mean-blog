@@ -1,5 +1,5 @@
 {
-  "name": "mean-boilerplate",
+  "name": "mean-starter",
   "version": "0.0.1",
   "description": "a starting point for express, angular, mongodb apps",
   "main": "server.js",
@@ -19,7 +19,8 @@
   "author": "Connor Leech",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.13.1",
     "express": "^4.12.4",
-    "mongoose": "^4.0.4"
+    "mongoose": "^4.0.5"
   }
 }
