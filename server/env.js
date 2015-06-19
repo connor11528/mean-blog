@@ -1,7 +1,6 @@
 var path = require('path'),
 	rootPath = path.normalize(__dirname + '/../../');
-	console.log(rootPath);
-
+	
 module.exports = {
 	development: {
 		rootPath: rootPath,
