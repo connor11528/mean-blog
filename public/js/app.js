@@ -9,16 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			url: "/",
 			templateUrl: "templates/main.html",
 			controller: 'MainCtrl'
-		})
-		.state('login', {
-			url: '/login',
-			templateUrl: 'templates/login.html',
-			controller: 'LoginCtrl'
-		})
-		// .state('register', {
-		// 	url: '/register',
-		// 	templateUrl: 'templates/register.html'
-		// });
+		});
 
-	$urlRouterProvider.otherwise("/login");
+	$urlRouterProvider.otherwise("/");
 });

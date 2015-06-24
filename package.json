@@ -24,9 +24,6 @@
     "cors": "^2.7.1",
     "express": "^4.12.4",
     "method-override": "^2.3.3",
-    "mongoose": "^4.0.5",
-    "passport": "^0.2.2",
-    "passport-local": "^1.0.0",
-    "passport-spotify": "^0.3.0"
+    "mongoose": "^4.0.5"
   }
 }
