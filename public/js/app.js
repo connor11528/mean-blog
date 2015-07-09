@@ -1,5 +1,5 @@
 
-var app = angular.module('mean-boilerplate', [
+var app = angular.module('ghost-clone', [
 	'ui.router'
 ]);
 

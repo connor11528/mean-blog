@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(methodOverride());
 app.use(cookieParser());
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 // ROUTES

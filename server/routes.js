@@ -6,9 +6,18 @@ var express = require('express'),
 
 module.exports = function(app){	
 
-	// angularjs catch all route
-	router.get('/*', function(req, res) {
-		res.sendFile(rootPath + 'public/index.html', { user: req.user });
+	// home route
+	router.get('/', function(req, res) {
+		res.render('index.ejs');
+	});
+
+	// admin route
+	router.get('/admin', function(req, res) {
+		res.render('admin.ejs');
+	});
+
+	apiRouter.post('/login', function(req, res){
+
 	});
 
 	app.use('/api', apiRouter);	// haven't built any api yet
