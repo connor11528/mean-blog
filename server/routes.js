@@ -6,6 +6,8 @@ var express = require('express'),
 	router = express.Router();
 
 module.exports = function(app, passport){	
+	app.use('/api', apiRouter);	// haven't built any api yet
+	app.use('/', router);
 
 	// home route
 	router.get('/', function(req, res) {
@@ -14,11 +16,15 @@ module.exports = function(app, passport){
 
 	// admin route
 	router.get('/admin', function(req, res) {
-		res.render('admin');
+		res.render('admin/login');
 	});
 
-	router.get('/dashboard', isAdmin, function(req, res){
-		res.render('dashboard', {user: req.user});
+	router.get('/admin/register', function(req, res) {
+		res.render('admin/register');
+	});
+
+	router.get('/admin/dashboard', isAdmin, function(req, res){
+		res.render('admin/dashboard', {user: req.user});
 	});
 
 	router.post('/register', function(req, res){
@@ -35,17 +41,22 @@ module.exports = function(app, passport){
 	        // log the user in after it is created
 	        passport.authenticate('local')(req, res, function(){
 	        	console.log('authenticated by passport');
-	        	res.redirect('/dashboard');
+	        	res.redirect('/admin/dashboard');
 	        });
 	    });
 	});
 
 	router.post('/login', passport.authenticate('local'), function(req, res){
-		res.redirect('/dashboard');
+		res.redirect('/admin/dashboard');
 	});
 
-	app.use('/api', apiRouter);	// haven't built any api yet
-	app.use('/', router);
+	app.use(function(req, res, next){
+		res.status(404);
+
+		res.render('404');
+		return;
+	});
+	
 };
 
 function isAdmin(req, res, next){

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Ghost clone - admin</title>
+  <meta name="description" content="ghost clone javascript blog node.js angular.js">
+  <meta name="author" content="Connor Leech">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-sm-4 col-sm-offset-4 text-center'>
+        <h1>New user registration</h1>
+        <form <form method='post' action='/register'>
+          <input type='text' placeholder='Email' name='email' ng-model='user.email' class='form-control'>
+
+          <input type='password' placeholder='Password' name='password' ng-model='user.password' class='form-control'>
+          <input type='submit' class='btn btn-primary' value='Register'>
+        </form>
+        <a href='/admin'>Login with an existing account</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
