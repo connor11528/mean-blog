@@ -14,35 +14,17 @@ adminApp.config(function($stateProvider, $urlRouterProvider){
 			url: "/",
 			templateUrl: "templates/register.html",
 			controller: 'LoginCtrl'
+		})
+		.state('dashboard', {
+			url: "/dashboard",
+			templateUrl: "templates/dashboard.html",
+			controller: 'DashboardCtrl'
 		});
 
 	$urlRouterProvider.otherwise("/");
 });
 
-adminApp.controller('LoginCtrl', function($scope, $http){
+adminApp.controller('LoginCtrl', function($scope, $http, $state){
 	$scope.user = {};
 
-	$scope.adminLogin = function(){
-		console.log('send login');
-		var userCreds = {
-			email: $scope.user.email,
-			password: $scope.user.password
-		};
-
-		$http.post('/api/login', userCreds).then(function(response){
-			console.log(response);
-			$scope.user = {};
-		});
-		
-	};
-
-	$scope.registerNewUser = function(){
-		var newUser = {
-			email: $scope.user.email,
-			password: $scope.user.password
-		};
-		$http.post('/api/register', newUser).then(function(response){
-			console.log(response);
-		});
-	};
 });

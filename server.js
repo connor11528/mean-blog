@@ -19,17 +19,23 @@ require('./server/passport')(passport);
 
 // EXPRESS CONFIG
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(methodOverride());
 app.use(cookieParser());
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.static(__dirname + '/public'));
+
 
 // ROUTES
-require('./server/routes')(app);
+require('./server/routes')(app, passport);
 
 // Start server
 app.listen(envConfig.port, function(){
