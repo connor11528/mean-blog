@@ -1,4 +1,4 @@
-Ghost clone
+Build a blog with javascript and mongodb
 =====
 
 A blog made out of the javascripts. Uses mongoose, angular, express and the node.js and the mongodbs for realz
