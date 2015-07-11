@@ -23,11 +23,3 @@ html, body, section, .full-height {
 #main-content {
     margin-top:70px;
 }
-
-label {
-    /* Other styling.. */
-    text-align: right;
-    clear: both;
-    float:left;
-    margin-right:15px;
-}

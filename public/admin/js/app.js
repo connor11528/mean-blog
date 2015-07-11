@@ -14,7 +14,15 @@ adminApp.config(function($stateProvider, $urlRouterProvider){
 			templateUrl: '/admin/templates/allPosts.html'
 		})
 		.state('addPost', {
-			url: '/',
+			url: '/addPost',
 			templateUrl: '/admin/templates/addPost.html'
 		})
 });
+
+adminApp.controller('NavCtrl', function($scope, $state){
+	$scope.active = $state;
+	$scope.isActive = function(viewLocation){
+		var active = (viewLocation === $state.current.name);
+		return active;
+	};
+})
