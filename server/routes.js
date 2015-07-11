@@ -1,6 +1,7 @@
 var express = require('express'),
 	path = require('path'),
 	User = require('./models/user'),
+	Post = require('./models/post'),
 	rootPath = path.normalize(__dirname + '/../'),
 	apiRouter = express.Router(),
 	router = express.Router();

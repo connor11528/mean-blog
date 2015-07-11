@@ -14,21 +14,5 @@ $ nodemon server # OR npm start
 
 
 
-login.html to login.ejs
-register.html to register.ejs
-use ejs-locals for layout('layout')
-
-so...
-auth/
-authLayout.ejs
-login.ejs
-register.ejs
-
-admin/
-adminLayout.ejs
-admin.ejs
-
-home/
-homeLayout.ejs
-allPosts.ejs
-post.ejs
+ui-routing
+"active" class to navigation items
