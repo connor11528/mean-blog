@@ -1,21 +1,25 @@
 <div class='row full-height'>
     <!-- Sidebar -->
-    <div class='col-sm-3'>
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#">
-                    Sidebar
-                </a>
-            </li>
-            <li ng-repeat='post in posts'>
-                <a href="#">{{post.title}}</a>
+    <div class='col-sm-4'>
+        <h3>Published posts</h3>
+        <ul class="list-group">
+            <li ng-show="!posts.length">No posts have been published</li>
+
+            <li ng-repeat='post in posts track by $index'
+                class="list-group-item"
+                ng-class="{'active': (activePost === post)}"
+                ng-click='setActive(post)'>
+
+                <h4 class="list-group-item-heading">{{post.title}}</h4>
+                <p class="list-group-item-text">{{post.body.substr(0, 140)}}</p>
             </li>
         </ul>
     </div>
     <!-- /Sidebar -->
 
     <!-- Page Content -->
-    <div class='col-sm-9 full-height'>
-      
+    <div class='col-sm-8 full-height'>
+        <h2>{{activePost.title}}</h2>
+        <div btf-markdown='activePost.body'></div>
     </div>
 </div>

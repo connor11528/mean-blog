@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app='ghost-clone.admin'>
+<html lang="en" ng-app='mean-blog.admin'>
 <head>
   <meta charset="utf-8">
 
@@ -26,6 +26,8 @@
 
   <script src='/admin/js/lib/markdown.js'></script>
   <script src='/admin/js/app.js'></script>
+  <script src='/admin/js/controllers.js'></script>
+  <script src='/common/modules/posts.js'></script>
   <script type='text/javascript'>
     var currentUser = <%- JSON.stringify(user); %>;
     adminApp.run(function($rootScope){

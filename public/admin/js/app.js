@@ -1,7 +1,8 @@
 
-var adminApp = angular.module('ghost-clone.admin', [
+var adminApp = angular.module('mean-blog.admin', [
 	'ui.router',
-	'btford.markdown'
+	'btford.markdown',
+	'mean-blog.posts'
 ]);
 
 adminApp.config(function($stateProvider, $urlRouterProvider){
@@ -11,18 +12,20 @@ adminApp.config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
 		.state('allPosts', {
 			url: '/',
-			templateUrl: '/admin/templates/allPosts.html'
+			templateUrl: '/admin/templates/allPosts.html',
+			resolve: {
+				postList: function(Posts){
+					return Posts.all().then(function(data){
+						return data;
+					});
+				}
+			},
+			controller: 'AllPostsCtrl'
 		})
 		.state('addPost', {
 			url: '/addPost',
-			templateUrl: '/admin/templates/addPost.html'
-		})
+			templateUrl: '/admin/templates/addPost.html',
+			controller: 'AddPostCtrl'
+		});
 });
 
-adminApp.controller('NavCtrl', function($scope, $state){
-	$scope.active = $state;
-	$scope.isActive = function(viewLocation){
-		var active = (viewLocation === $state.current.name);
-		return active;
-	};
-})
