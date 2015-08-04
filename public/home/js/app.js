@@ -1,6 +1,7 @@
 
-var app = angular.module('ghost-clone', [
-	'ui.router'
+var app = angular.module('mean-blog.home', [
+	'ui.router',
+	'ngMaterial'
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider){

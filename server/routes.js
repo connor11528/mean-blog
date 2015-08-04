@@ -1,14 +1,16 @@
 var express = require('express'),
 	path = require('path'),
 	User = require('./models/user'),
-	Post = require('./models/post'),
 	rootPath = path.normalize(__dirname + '/../'),
 	apiRouter = express.Router(),
 	router = express.Router();
 
 module.exports = function(app, passport){	
-	app.use('/api', apiRouter);	// haven't built any api yet
+	app.use('/api', apiRouter);
 	app.use('/', router);
+
+	// API routes
+	require('./api/posts')(apiRouter);
 
 	// home route
 	router.get('/', function(req, res) {

@@ -1,10 +1,35 @@
 
+<!-- Main Content -->
+<md-content flex="" layout-padding="">
+  <div layout="row" layout-fill="" layout-align="end start">
 
-<div class='jumbotron text-center'>
-	<h1>Welcome to mean-starter</h1>
+      <md-button ng-click="toggleRight()" class="md-icon-button md-primary" aria-label="Menu">
+      	<md-icon md-svg-icon="/home/img/icons/menu.svg"></md-icon>
+      </md-button>
+  </div>
 
-	<p>Start building! <b>find me in public/templates/main.html)</b></p>
+  <div flex=""></div>
+</md-content>
 
-	<div class='btn btn-success'>{{button}}</div>
+<!-- Sidenav -->
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
 
-</div>
+  <md-toolbar class="md-theme-light">
+    <h1 class="md-toolbar-tools">MEAN Blog</h1>
+  </md-toolbar>
+  <md-content ng-controller="SidenavCtrl" layout-padding="">
+    <form>
+      <md-input-container>
+        <label for="testInput">Search posts</label>
+        <input type="text" id="testInput" ng-model="data" md-sidenav-focus="">
+      </md-input-container>
+    </form>
+    
+    <!-- Close button
+    <md-button ng-click="close()" class="md-primary" aria-label="Close menu">
+      <md-icon md-svg-icon="/home/img/icons/close.svg"></md-icon>
+    </md-button>
+    -->
+  </md-content>
+
+</md-sidenav>
